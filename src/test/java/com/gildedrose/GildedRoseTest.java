@@ -48,6 +48,16 @@ class GildedRoseTest {
     }
 
     @Test
+    public void sulfuras_Hand_of_Ragnaro_Item_Quality_Should_Be_positive_() {
+        Item[] items = new Item[] {new Item("Sulfuras, Hand of Ragnaros", 1, 79)};
+        GildedRose app = new GildedRose(items);
+
+        app.updateQuality();
+
+        assertTrue(app.items[0].quality>0);
+    }
+
+    @Test
     public void sulfuras_Hand_of_Ragnaro_Item_Quality_Should_Be_positive() {
         Item[] items = new Item[] {new Item("Sulfuras, Hand of Ragnaros", 0, 80)};
         GildedRose app = new GildedRose(items);
@@ -58,13 +68,13 @@ class GildedRoseTest {
     }
 
     @Test
-    public void sulfuras_Hand_of_Ragnaro_Item_Quality_Should_Be_positive2() {
+    public void sulfuras_Hand_of_Ragnaro_Item_Quality_Should_Not_Change() {
         Item[] items = new Item[] { new Item("Sulfuras, Hand of Ragnaros", -1, 80) };
         GildedRose app = new GildedRose(items);
 
         app.updateQuality();
 
-        assertTrue(app.items[0].quality>0);
+        assertEquals(80, app.items[0].quality);
     }
 
     @Test
@@ -178,5 +188,10 @@ class GildedRoseTest {
     // ou moins, mais la qualité tombe à 0 après le concert.
 
 
+
+    // ?????
+    //Juste une précision, un produit ne peut jamais voir sa qualité augmenter au-dessus de 50,
+    // cependant "Sulfuras" est un objet légendaire et comme tel sa qualité est de 80 et il ne change jamais.
+    //=====>
 
 }
