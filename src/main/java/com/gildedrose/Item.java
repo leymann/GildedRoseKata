@@ -21,7 +21,7 @@ public class Item {
 
 
     public void updateQuality(int value){
-        this.quality = this.quality + (value);
+        this.quality = value;
     }
 
 

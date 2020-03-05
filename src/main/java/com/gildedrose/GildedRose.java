@@ -1,13 +1,44 @@
 package com.gildedrose;
 
+import com.gildedrose.updaters.*;
+
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
+
 class GildedRose {
+
+
     Item[] items;
+
+    static Map<String, ItemVisitorStrategy> itemsUpdaterFactory = new HashMap<>();
+
+    static {
+        itemsUpdaterFactory.put("Aged Brie", new AgedBrieItemUpdater());
+        itemsUpdaterFactory.put("Sulfuras, Hand of Ragnaros", new SulfurasItemUpdater());
+        itemsUpdaterFactory.put("Backstage passes to a TAFKAL80ETC concert", new BackstagePassItemUpdater());
+        itemsUpdaterFactory.put("Conjured", new ConjuredItemUpdater());
+    }
+
 
     public GildedRose(Item[] items) {
         this.items = items;
     }
 
+
     public void updateQuality() {
+        Arrays.stream(items).forEach(this::doVisitAnItem);
+    }
+
+
+    private void doVisitAnItem(Item item){
+        itemsUpdaterFactory.getOrDefault(item.name, new OrdinaryItemUpdater()).visit(item);
+    }
+
+
+
+    @Deprecated
+    public void updateQuality0() {
 
             for (Item item : items) {
 

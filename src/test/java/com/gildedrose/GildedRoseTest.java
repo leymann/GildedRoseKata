@@ -114,7 +114,7 @@ class GildedRoseTest {
         GildedRose app = new GildedRose(items);
 
         app.updateQuality();
-        System.out.println(app.items[0].quality);
+        //System.out.println(app.items[0].quality);
 
         assertTrue(app.items[0].quality <= 50);
     }
@@ -125,7 +125,7 @@ class GildedRoseTest {
         GildedRose app = new GildedRose(items);
 
         app.updateQuality();
-        System.out.println(app.items[0].quality);
+        //System.out.println(app.items[0].quality);
 
         assertTrue(app.items[0].quality <= 50);
     }
@@ -136,7 +136,7 @@ class GildedRoseTest {
         GildedRose app = new GildedRose(items);
 
         app.updateQuality();
-        System.out.println(app.items[0].quality);
+        //System.out.println(app.items[0].quality);
 
         assertTrue(app.items[0].quality <= 50);
     }
@@ -148,7 +148,7 @@ class GildedRoseTest {
         GildedRose app = new GildedRose(items);
 
         app.updateQuality();
-        System.out.println(app.items[0].quality);
+        //System.out.println(app.items[0].quality);
 
 
         assertEquals(32, app.items[0].quality);
